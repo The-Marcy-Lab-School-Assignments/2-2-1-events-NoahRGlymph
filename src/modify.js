@@ -15,16 +15,34 @@ const clickCounterHandler = () => {
   button.textContent = `I've been clicked ${clicks} ${clicks === 1 ? 'time.' : 'times!'}`;
 };
 
+// Define the clickCounterHandler function
+const clickCounterHandler2 = () => {
+  const button = document.querySelector('#incline-button'); // Select the button element
+
+  // Get the current number of clicks from the data-clicks attribute
+  let clicks = parseInt(button.getAttribute('data-clicks')) || 0;
+  
+  // Increment the number of clicks
+  clicks += 1;
+
+  // Update the data-clicks attribute with the updated number of clicks
+  button.setAttribute('data-clicks', clicks.toString());
+
+  // Update the text content of the button to display the number of clicks
+  button.textContent = `I've been clicked ${clicks} ${clicks === 1 ? 'time.' : 'times!'}`;
+};
+
 // Add event listener to the button
 document.querySelector('#click-button').addEventListener('click', clickCounterHandler);
  //error where which question
 
 const handleKeydown = (event) => {
-  const keyCode = event.keyCode; // Get the key code of the last key pressed
+  const keyCode = event.code; // Get the key code of the last key pressed
   const pTag = document.querySelector('#keydown-tracker'); // Select the p tag
-  
+  console.log(pTag)
+  console.log(keyCode)
   // Modify the text content of the p tag to display the key code
-  pTag.textContent = `You pressed ${"Space"}`;
+  pTag.textContent = `You pressed ${keyCode}`;
 };
 
 
@@ -74,10 +92,10 @@ document.querySelector('#add-random-num').addEventListener('click', addNewRandom
 
 
 
-const main = () => {
-  const delegationContainer = document.querySelector('#delegation');
+// const main = () => {
+//   const delegationContainer = document.querySelector('#delegation');
 
-  delegationContainer.addEventListener('click', handleDelegation);
-};
+//   delegationContainer.addEventListener('click', handleDelegation);
+// };
 
-main();
+// main();
